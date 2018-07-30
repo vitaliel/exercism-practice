@@ -7,15 +7,19 @@ defmodule Bob do
     cond do
       text == "" ->
         "Fine. Be that way!"
+
       String.ends_with?(text, "?") ->
         if is_yelling do
           "Calm down, I know what I'm doing!"
         else
           "Sure."
         end
+
       is_yelling ->
         "Whoa, chill out!"
-      true -> "Whatever."
+
+      true ->
+        "Whatever."
     end
   end
 end
