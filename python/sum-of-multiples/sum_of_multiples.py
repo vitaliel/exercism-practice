@@ -1,13 +1,8 @@
 def sum_of_multiples(limit, multiples):
-  if len(multiples) == 0:
-    return 0
+  numbers = set()
 
-  result = 0
+  for m in multiples:
+    for i in range(m, limit, m):
+      numbers.add(i)
 
-  for n in range(limit):
-    for m in multiples:
-      if n % m == 0:
-        result += n
-        break
-
-  return result
+  return sum(numbers)
