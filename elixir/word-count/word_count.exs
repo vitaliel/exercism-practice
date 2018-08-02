@@ -15,11 +15,7 @@ defmodule Words do
       |> String.split(~r/\s+/)
 
     List.foldl(words, %{}, fn el, acc ->
-      if Map.has_key?(acc, el) do
-        Map.put(acc, el, acc[el] + 1)
-      else
-        Map.put(acc, el, 1)
-      end
+      Map.update(acc, el, 1, &(&1 + 1))
     end)
   end
 end
