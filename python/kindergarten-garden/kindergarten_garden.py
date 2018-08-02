@@ -4,12 +4,11 @@ STUDENTS = "Alice Bob Charlie David Eve Fred Ginny Harriet Ileana Joseph Kincaid
 class Garden(object):
   def __init__(self, diagram, students = None):
     self.rows = diagram.split()
+    self.students = STUDENTS
 
-    if not students:
-      self.students = STUDENTS
-    else:
+    if students:
       self.students = sorted(students)
 
   def plants(self, student_name):
-    idx = self.students.index(student_name) * 2
-    return [PLANTS[row[idx + i]] for row in self.rows for i in [0, 1]]
+    index = self.students.index(student_name) * 2
+    return [PLANTS[row[index + i]] for row in self.rows for i in [0, 1]]
